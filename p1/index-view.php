@@ -9,6 +9,18 @@
 
 <body>
     <h1>String Processor</h1>
+    <ul>
+        <li>String: <?php echo $input_string ?>
+        </li>
+        <li>The string has this many vowels : <?php echo $vowel_count ?></li>
+        <li> Is it a pallindrome?
+            <?php if ($is_palindrome) { ?>
+            Yup
+            <?php } else { ?>
+            Nope
+            <?php } ?>
+        </li>
+    </ul>
 </body>
 
 </html>
