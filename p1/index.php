@@ -1,30 +1,16 @@
 <?php
 
-$input_string = 'A Toyota';
+session_start();
 
-function countVowels( $str ) {
-    $count = 0;
-    $letters = str_split( strtolower($str) );
-    foreach ( $letters as $letter ) {
-        if ( in_array( $letter, ['a', 'e', 'i', 'o', 'u'] ) ) {
-           ++$count;
-        }
-    }
-    return $count;
+if (isset($_SESSION['results'])) {
+    $results = $_SESSION['results'];
+    $inputString = $results['inputString'];
+    $vowelCount = $results['vowelCount'];
+    $isPalindrome = $results['isPalindrome'];
+    $letterShift = $results['letterShift'];
+    $pigLatin = $results['pigLatin'];
+
+    $_SESSION['results'] = null;
 }
 
-function isPalindrome( $str ) {
-    $letters = str_split( strtolower( str_replace(' ', '', $str) ) );
-    $letters_reversed = array_reverse($letters);
-    if ($letters === $letters_reversed  ) {
-        $is_palindrome = true;
-    } else {
-        $is_palindrome = false;
-    };
-    return $is_palindrome;
-}
-
-$vowel_count = countVowels($input_string);
-$is_palindrome = isPalindrome($input_string);
-
-require "index-view.php";
+require 'index-view.php';
