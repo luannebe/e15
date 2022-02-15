@@ -29,7 +29,6 @@ function letterShift( $str ) {
     $alphabet = array_merge($lowercase, $uppercase);
     for ($i = 0; $i < strlen($str); $i++) {
         if( in_array( $str[$i], $alphabet ) ) {
-            // $temp = $str[$i];
             $newStr .= chr( ord($str[$i]) + 1 );
         } elseif ($str[$i] == "Z") {
             $newStr .= "A";
