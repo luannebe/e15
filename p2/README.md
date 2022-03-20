@@ -1,4 +1,4 @@
-# Project 1
+# Project 2
 + By: Luann Ebert
 + URL: <http://e15p2.flyingdog.nu>
 
