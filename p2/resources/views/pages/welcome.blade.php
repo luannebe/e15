@@ -94,13 +94,16 @@
 
             @endforeach
         </ul>
-        
+        @php
+        // change "voice" of question to make it sound like a response
+        $response = str_replace('my', 'your', $question);
+        @endphp
         @if($decision == 'Yes')
             <p class='prose prose-lg lg:prose-xl  mt-0 lg:ml-0 max-w-none font-bold text-center  opacity-0 animate-fadein underline decoration-green-500 decoration-wavy decoration-2 underline-offset-8'>
-            Yes, go ahead ... {{$question}}.
+            Yes, go ahead ... {{$response}}.
         @else
             <p class='prose prose-lg lg:prose-xl  mt-0 lg:ml-0 max-w-none font-bold text-center   opacity-0 animate-fadein underline decoration-red-500 decoration-wavy decoration-2  underline-offset-8'>
-            No, don&rsquo;t {{$question}}.
+            No, don&rsquo;t {{$response}}.
         @endif
             </p>
     @endif 
