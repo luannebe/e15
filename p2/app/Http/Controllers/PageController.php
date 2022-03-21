@@ -37,7 +37,7 @@ class PageController extends Controller
     public function process(Request $request) {
 
         $request->validate([
-            'question' => 'required',
+            'question' => 'required|between:2,250',
             'headsMeans' => 'required',
             'numTosses' => 'required|in:1,3,5'
         ]);
