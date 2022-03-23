@@ -96,7 +96,7 @@
         </ul>
         @php
         // change "voice" of question to make it sound like a response
-        $response = str_ireplace('my', 'your', $question);
+        $response = str_ireplace(' my ',  'your ', $question);
         $response = rtrim($response,'?');
         @endphp
         @if($decision == 'Yes')
