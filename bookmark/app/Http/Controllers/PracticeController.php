@@ -5,9 +5,100 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Book;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Author;
 
 class PracticeController extends Controller
 {
+    /**
+     * 
+     * GET /practice/14
+     * Eager loading
+     */
+    public function practice14(Request $request)
+    {
+        # Eager load the author with the book
+        $books = Book::with('author')->get();
+
+        foreach ($books as $book) {
+            if ($book->author) {
+                dump($book->author->first_name.' '.$book->author->last_name.' wrote '.$book->title);
+            } else {
+                dump($book->title. ' has no author associated with it.');
+            }
+        }
+        dump($books->toArray());
+    }
+
+    /**
+     * 
+     * GET /practice/13
+     * 
+     */
+    public function practice13(Request $request)
+    {
+        # Get an example book
+        $book = Book::whereNotNull('author_id')->first();
+
+        # Get the author from this book using the "author" dynamic property
+        # "author" corresponds to the the relationship method defined in the Book model
+        $author = $book->author;
+
+        # Output
+        dump($book->title.' was written by '.$author->first_name.' '.$author->last_name);
+        dump($book->toArray());
+    }
+    /**
+     * enter a new book with an author
+     * GET /practice/12
+     * will produce a string of jason
+     */
+    public function practice12(Request $request)
+    {
+        $author = Author::where('first_name', '=', 'J.K.')->first();
+
+        $book = new Book;
+        $book->slug = 'fantastic-beasts-and-where-to-find-them';
+        $book->title = "Fantastic Beasts and Where to Find Them";
+        $book->published_year = 2001;
+        $book->cover_url = 'https://hes-bookmark.s3.amazonaws.com/cover-placeholder.png';
+        $book->info_url = 'https://en.wikipedia.org/wiki/Fantastic_Beasts_and_Where_to_Find_Them';
+        $book->purchase_url = 'http://www.barnesandnoble.com/w/fantastic-beasts-and-where-to-find-them-j-k-rowling/1004478855';
+        $book->author()->associate($author); # <--- Associate the author with this book -- object approach
+        $book->description = 'Fantastic Beasts and Where to Find Them is a 2001 guide book written by British author J. K. Rowling (under the pen name of the fictitious author Newt Scamander) about the magical creatures in the Harry Potter universe. The original version, illustrated by the author herself, purports to be Harry Potter’s copy of the textbook of the same name mentioned in Harry Potter and the Philosopher’s Stone (or Harry Potter and the Sorcerer’s Stone in the US), the first novel of the Harry Potter series. It includes several notes inside it supposedly handwritten by Harry, Ron Weasley, and Hermione Granger, detailing their own experiences with some of the beasts described, and including in-jokes relating to the original series.';
+        $book->save();
+        dump($book->toArray());
+    }
+    /**
+     * get the currently authenticated user
+     * GET /practice/11
+     * will produce a string of jason
+     */
+    public function practice11(Request $request)
+    {
+        # Retrieve the currently authenticated user via the Auth facade
+        $user = Auth::user();
+        dump($user->toArray());
+    
+        # Retrieve the currently authenticated user via request object
+        $user = $request->user();
+        dump($user->toArray());
+    
+        # Check if the user is logged in
+        if (Auth::check()) {
+            dump('The user ID is '.Auth::id());
+        }
+    }
+
+    /**
+     * Practice queries
+     * GET /practice/10
+     * will produce a string of jason
+     */
+    public function practice10() {
+        $books = Book::all();
+        echo $books;
+    }
 
     /**
      * Practice queries
