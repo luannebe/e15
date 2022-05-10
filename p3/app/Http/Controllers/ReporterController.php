@@ -66,7 +66,8 @@ class ReporterController extends Controller
         $request->validate([
             'date_observed' => 'required|date',
             'street_number' => 'required|max:255',
-            'street_name' => 'required|max:255',      
+            'street_name' => 'required|max:255', 
+            'categories' => 'required',     
             'observer_first_name' => 'required|max:255',
             'observer_last_name' => 'required|max:255',
             'observer_email' => 'required|email',
@@ -107,7 +108,9 @@ class ReporterController extends Controller
         }
         
         // send notification email
-        Mail::to('lu@flyingdog.nu')->send(new NewReportNotification($report, $photo));
+
+        Mail::to('lu@flyingdog.nu')->send(new NewReportNotification($report, $photo = null));
+
 
         return redirect('/make-a-report')->with(['flash-alert' => 'Your report was submitted. Thank you for helping us save trees!']);
     }
