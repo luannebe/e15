@@ -71,6 +71,7 @@ class ReporterController extends Controller
             'observer_first_name' => 'required|max:255',
             'observer_last_name' => 'required|max:255',
             'observer_email' => 'required|email',
+            'filename' => 'image|mimes:jpeg,bmp,png|max:1024',
         ]);
 
         $report = new Report();
@@ -90,7 +91,7 @@ class ReporterController extends Controller
             $category = Category::where('id', '=', $categoryId)->first();
             $report->categories()->save($category);
         }
-
+        $photo = null;
         // Save photo filename and caption in photos table
         // Note: in future versions of app, one report will have up to three photos
         if ($request->filename) {
@@ -109,7 +110,8 @@ class ReporterController extends Controller
         
         // send notification email
 
-        Mail::to('lu@flyingdog.nu')->send(new NewReportNotification($report, $photo = null));
+        Mail::to('lu@flyingdog.nu')->send(new NewReportNotification($report, $photo));
+
 
 
         return redirect('/make-a-report')->with(['flash-alert' => 'Your report was submitted. Thank you for helping us save trees!']);

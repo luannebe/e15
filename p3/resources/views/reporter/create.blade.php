@@ -80,15 +80,17 @@
         </div>
         {{-- Photo --}}
         <div class="col-12">
-            <label for="filename" class="form-label">Upload a photo</label>
+            <label for="filename" class="form-label">Upload a photo <span class="text-secondary">.png, .jpg, .bmp; less than 1MB</span></label>
             <input class="form-control" type="file" id="filename" name="filename" value='{{ old("filename", $filename) }}'
             >
         </div>
+        @include('includes/error-field', ['fieldName' => 'filename'])
         {{-- Photo caption --}}
         <div class="col-12">
             <label for="caption" class="form-label">Brief photo caption</label>
             <input type="text" class="form-control" id="caption" name="caption" value='{{ old("caption", $caption) }}'>         
         </div>
+        @include('includes/error-field', ['fieldName' => 'caption'])
         {{-- Heritage tree --}}
         <div class="col-12">
             <label for="heritage_tree" class="form-label">Heritage Tree?</label>

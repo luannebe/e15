@@ -12,7 +12,7 @@
     <p>Comments: <br>{{$report->comments}}</p>
 
     @if($photo)
-     <p>{{$photo->caption}}</p>
+     <p><em>{{$photo->caption}}</em></p>
      <p><img src="{{$photo->url}}"></p>
     @endif
 
