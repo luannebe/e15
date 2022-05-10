@@ -1,0 +1,23 @@
+[
+    {
+        "street_number": "2500",
+        "street_name": "Massachusetts Ave. NW",
+        "date_observed": "2021-05-03",
+        "heritage_tree": "0",
+        "comments": "Branch of street tree whacked -2 weeks ago. Notified Miller Pipeline which was working nearby at the time."
+    },
+    {
+        "street_number": "2311",
+        "street_name": "Massachusetts Ave. NW",
+        "date_observed": "2021-05-10",
+        "heritage_tree": "0",
+        "comments": "Grass is growing high & messy under tree protection fences. May local personnel lift and shift the fences, mow, and set them back?"
+    },
+    {
+        "street_number": "2000",
+        "street_name": "Massachusetts Ave. NW",
+        "date_observed": "2021-05-03",
+        "heritage_tree": "0",
+        "comments": "Tall equipment has broken branches of important elm and linden trees that RMA and local owners have nurtured for years. Trees could be ruined."
+    }
+]

@@ -67,8 +67,6 @@ class ReporterController extends Controller
             'date_observed' => 'required|date',
             'street_number' => 'required|max:255',
             'street_name' => 'required|max:255',      
-            'categories' => 'array|min:1',
-            'filename' => 'mimes:jpeg,bmp,png|size:1000',
             'observer_first_name' => 'required|max:255',
             'observer_last_name' => 'required|max:255',
             'observer_email' => 'required|email',

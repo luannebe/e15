@@ -26,6 +26,7 @@ class ReportsTableSeeder extends Seeder
         # https://fakerphp.github.io
         $this->faker = Factory::create();
         $this->addRandomlyGeneratedReportsUsingFaker();
+        $this->addAllReportsFromReportsDotJsonFile();
         //$this->addMultipleReports();
     }
 
@@ -81,6 +82,31 @@ class ReportsTableSeeder extends Seeder
             $report->date_observed = $this->faker->date($format = 'Y-m-d', $max = 'now');
             $report->heritage_tree = $this->faker->boolean();
             $report->comments = $this->faker->paragraphs(1, true);
+            $report->observer_first_name = $this->faker->firstName;
+            $report->observer_last_name = $this->faker->lastName;
+            $report->observer_email = $this->faker->safeEmail;
+            $report->save();
+        }
+    }
+
+    /**
+     *
+     */
+    private function addAllReportsFromReportsDotJsonFile()
+    {
+        $reportData = file_get_contents(database_path('reports.json'));
+        $reports = json_decode($reportData, true);
+
+        foreach ($reports as $reportData) {
+
+            $report = new Report();
+            $report->created_at = $this->faker->dateTimeThisMonth();
+            $report->updated_at = $this->faker->dateTimeThisMonth();
+            $report->street_number = $reportData['street_number'];
+            $report->street_name = $reportData['street_name'];
+            $report->date_observed = $reportData['date_observed'];
+            $report->heritage_tree = $reportData['heritage_tree'];
+            $report->comments = $reportData['comments'];
             $report->observer_first_name = $this->faker->firstName;
             $report->observer_last_name = $this->faker->lastName;;
             $report->observer_email = $this->faker->safeEmail;

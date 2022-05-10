@@ -34,6 +34,7 @@ class PhotosTableSeeder extends Seeder
 
         # Done primarily for learning purposes
         $this->addRandomlyGeneratedPhotoRecordsUsingFaker();
+        $this->addAllPhotosFromPhotosDotJsonFile();
         //$this->addMultiplePhotos();
     }
 
@@ -78,5 +79,25 @@ class PhotosTableSeeder extends Seeder
             $photo->save();
         }
 
+    }
+
+    private function addAllPhotosFromPhotosDotJsonFile()
+    {
+        $photoData = file_get_contents(database_path('photos.json'));
+        $photos = json_decode($photoData, true);
+
+        foreach ($photos as $photoData) {
+
+            $photo = new Photo();
+            $photo->created_at = $this->faker->dateTimeThisMonth();
+            $photo->updated_at = $this->faker->dateTimeThisMonth();
+            $photo->filename = $photoData['filename'];
+            $photo->report_id = $photoData['report_id'];
+
+            $photo->caption = $photoData['caption'];
+            $photo->url = $photoData['url'];
+  
+            $photo->save();
+        }
     }
 }
