@@ -1,0 +1,42 @@
+@import '~bootstrap/scss/bootstrap';
+
+header {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    background-color: #e0ddc9 !important; 
+}
+
+.navbar {
+    background-color: #e0ddc9 !important;  
+    border-color: transparent; 
+    margin-bottom: 10px !important;
+}
+
+footer {
+    background-color: white !important;
+
+}
+
+.welcome #main {
+    height: 100%;
+}
+
+form {
+    text-align: left;
+}
+
+.flash-alert {
+    background-color: yellow;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 5px;
+    font-weight: bold;
+    text-align: center;
+    z-index: 100;
+}
+
+.reports_list table {
+    font-size: .75em;
+}

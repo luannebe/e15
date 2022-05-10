@@ -1,0 +1,1 @@
+<p>A new book -- {{$book->title}} -- was added.</p>

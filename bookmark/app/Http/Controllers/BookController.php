@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use App\Models\Author;
 use App\Models\Book;
+use App\Mail\NewBookNotification;
+use Illuminate\Support\Facades\Mail;
 
 
 class BookController extends Controller
@@ -49,8 +51,9 @@ class BookController extends Controller
         $book->purchase_url = $request->purchase_url;
         $book->description = $request->description;
         $book->save();
-        //confirm
-        // dump($book);
+        
+        // send notification email
+        Mail::to($request->user())->send(new NewBookNotification($book)); 
 
         return redirect('/books/create')->with(['flash-alert' => 'Your book was added']);
     }
@@ -196,26 +199,15 @@ class BookController extends Controller
      * Show the details for an individual book
      */
 
-    public function show($slug)
+    public function show(Request $request, $slug)
     {
         $book = Book::where('slug', '=', $slug)->first();
+        $user = $request->user();
 
         return view('books/show', [
             'book' => $book,
+            'user' => $user
         ]);
-        # Load book data
-        # @TODO: This code is redundant with loading the books in the index method
-        // $bookData = file_get_contents(database_path('books.json'));
-        // $books = json_decode($bookData, true);
-
-        # Narrow down array of books to the single book we’re loading
-        // $book = Arr::first($books, function ($value, $key) use ($slug) {
-        //     return $key == $slug;
-        // });
-
-        // return view('books/show', [
-        //     'book' => $book,
-        // ]);
 
     }
 
@@ -246,7 +238,10 @@ class BookController extends Controller
     {
         $book = Book::findBySlug($slug);
 
-        #$book->users()->detach();
+        # takes care of any relationships to user table
+        # eliminates foreign key constraints., but not great from user perspective.
+        # perhaps warn them before allowing a delete (they will also delete their notes.)
+        $book->users()->detach();
 
         $book->delete();
 
