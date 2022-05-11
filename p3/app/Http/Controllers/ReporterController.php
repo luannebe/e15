@@ -112,8 +112,6 @@ class ReporterController extends Controller
 
         Mail::to('lu@flyingdog.nu')->send(new NewReportNotification($report, $photo));
 
-
-
         return redirect('/make-a-report')->with(['flash-alert' => 'Your report was submitted. Thank you for helping us save trees!']);
     }
 }

@@ -35,31 +35,6 @@ class PhotosTableSeeder extends Seeder
         # Done primarily for learning purposes
         $this->addRandomlyGeneratedPhotoRecordsUsingFaker();
         $this->addAllPhotosFromPhotosDotJsonFile();
-        //$this->addMultiplePhotos();
-    }
-
-    private function addMultiplePhotos()
-    {
-        // Array of report data to add
-        $photos = [
-            ['2022-05-01_39-56th-Massachusetts-Ave-NW_Broken-branch-2500-Mass.jpeg','Broken branches at 2500 Mass Ave', '3',  ],
-        ];
-        $count = count($photos);
-
-        # Loop through each author, adding them to the database
-        foreach ($photos as $photoData) {
-            $photo = new Photo();
-            
-            $photo->created_at = $this->faker->dateTimeThisMonth();
-            $photo->updated_at = $this->faker->dateTimeThisMonth();
-
-            $photo->filename = $photoData[0];
-            $photo->caption = $photoData[1];
-            $photo->report_id = $photoData[2];
-         
-            $photo->save();          
-            $count--;
-        }
     }
     
     private function addRandomlyGeneratedPhotoRecordsUsingFaker()

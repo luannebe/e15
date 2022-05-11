@@ -21,18 +21,7 @@ class CategoriesTableSeeder extends Seeder
     {
         # https://fakerphp.github.io
         $this->faker = Factory::create();
-        // $this->addOneCategory();
         $this->addCategories();
-    }
-
-    private function addOneCategory() {
-        $category = new category();
-
-        $category->created_at = $this->faker->dateTimeThisMonth();
-        $category->updated_at = $this->faker->dateTimeThisMonth();
-
-        $category->label = "Bogus label";
-        $category->save();
     }
 
     private function addCategories() {

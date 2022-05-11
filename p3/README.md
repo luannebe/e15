@@ -1,64 +1,32 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# Project 3
++ By: Luann Ebert
++ Production URL: <http://e15p3.yourdomain.com>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Background
+Restore Mass Ave is a volunteer group committed to protecting the trees along Washington CD's legendary Embassy Row. The street is undergoing a massive construction project that, while having many benefits, poses significant risks to these urban trees, many of which are over 100 years old. When and if fully developed, this app would enable volunteers to report the impacts of construction -- both and bad.  RMA would analyze and pass the reports on to city management and construction companies for resolution and recognization.
 
-## About Laravel
+## Feature summary
+ 
++ RMA volunteers, or any concerned individual, can submit a report at the [homepage](http://e15p3.flyingdog.nu)
++ The report can include a photo and optional caption. The filenames of uploaded photos are automatically prepended with the observation date and street location for identification. 
++ RMA is automatically notified by email when a report is submitted. The email includes the photo and caption, if provided.
++ Authorized RMA administrators can [log in](http://e15p3.flyingdog.nu/tracker) to view a report list and delete individual reports. (Future iterations would allow report edits, and attaching notes.)
+ 
+## Database summary
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
++ My application has 4 tables in total (`users`, `reports`, `photos`, `categories`)
++ There's a many-to-many relationship between `reports` and `categories`
++ There's a one-to-many relationship between `reports` and `photos`
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Outside resources
+Primary I consulted the course videos and notes, the Laravel documentation, Laracasts, the class forum, and StackOverflow. A few specific references:
++ [image validation](https://www.tutsmake.com/image-validation-in-laravel/)
++ [writing files to directories](https://stackoverflow.com/questions/60831451/laravel-unable-to-write-in-the-var-www-html-laraapp)
++ [un-escaping html in blade](https://stackoverflow.com/questions/29253979/displaying-html-with-blade-shows-the-html-code)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Notes for instructor
++ I have emailed my mailtrap.io credentials to you.
++ While I didn't get as far on this project as I had hoped, I learned a great deal from the course. Thank you!!!!
 
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## Tests
+Undergraduate - opting out

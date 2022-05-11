@@ -27,40 +27,6 @@ class ReportsTableSeeder extends Seeder
         $this->faker = Factory::create();
         $this->addRandomlyGeneratedReportsUsingFaker();
         $this->addAllReportsFromReportsDotJsonFile();
-        //$this->addMultipleReports();
-    }
-
-    /**
-     *
-     */
-    private function addMultipleReports()
-    {
-        // Array of report data to add
-        $reports = [
-            ['2021-05-03', '2500', 'Massachusetts Ave NW', '0', 'The branches of street tree by 2500 Mass were whacked ~2 weeks ago. RMA reported to Miller Pipeline.','Deborah', 'Shapley', 'restoremassave@gmail.com', '3' ],
-        ];
-        $count = count($reports);
-
-        # Loop through each author, adding them to the database
-        foreach ($reports as $reportData) {
-            $report = new Report();
-            
-            $report->created_at = $this->faker->dateTimeThisMonth();
-            $report->updated_at = $this->faker->dateTimeThisMonth();
-
-            $report->date_observed = $reportData[0];
-            $report->street_number = $reportData[1];
-            $report->street_name = $reportData[2];
-            $report->heritage_tree = $reportData[3];
-            $report->comments = $reportData[4];
-            $report->observer_first_name = $reportData[5];
-            $report->observer_last_name = $reportData[6];
-            $report->observer_email = $reportData[7];
-            $report->photo_id = $reportData[8];
-            
-            $report->save();          
-            $count--;
-        }
     }
 
     /**

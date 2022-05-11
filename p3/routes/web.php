@@ -27,6 +27,7 @@ Route::post('make-a-report', [ReporterController::class, 'store']);
 
 // Private Routes
 Route::group(['middleware' => 'auth'], function() {
+    # lists all reports
     Route::get('/tracker', [TrackerController::class, 'index']);
     # show the page to confirm deletion
     Route::get('tracker/{id}/delete', [TrackerController::class, 'delete']);
