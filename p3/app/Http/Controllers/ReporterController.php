@@ -71,7 +71,7 @@ class ReporterController extends Controller
             'observer_first_name' => 'required|max:255',
             'observer_last_name' => 'required|max:255',
             'observer_email' => 'required|email',
-            'filename' => 'image|mimes:jpeg,bmp,png|max:1024',
+            'filename' => 'image|mimes:jpeg,bmp,png|max:8000',
         ]);
 
         $report = new Report();

@@ -80,7 +80,7 @@
         </div>
         {{-- Photo --}}
         <div class="col-12">
-            <label for="filename" class="form-label">Upload a photo <span class="text-secondary">.png, .jpg, .bmp; less than 1MB</span></label>
+            <label for="filename" class="form-label">Upload a photo <span class="text-secondary">.png, .jpg, .bmp; less than 8MB</span></label>
             <input class="form-control" type="file" id="filename" name="filename" value='{{ old("filename", $filename) }}'
             >
         </div>

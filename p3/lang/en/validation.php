@@ -154,7 +154,7 @@ return [
             'required' => 'Please provide your email address in case we need more info.',
         ],
         'filename' => [
-            'image' => "Please provide a .png, gif, or bmp, no larger than 1MB."
+            'image' => "Please provide a .png, gif, or bmp, no larger than 8MB."
         ]
     ],
 

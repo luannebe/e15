@@ -23,6 +23,8 @@ Primary I consulted the course videos and notes, the Laravel documentation, Lara
 + [image validation](https://www.tutsmake.com/image-validation-in-laravel/)
 + [writing files to directories](https://stackoverflow.com/questions/60831451/laravel-unable-to-write-in-the-var-www-html-laraapp)
 + [un-escaping html in blade](https://stackoverflow.com/questions/29253979/displaying-html-with-blade-shows-the-html-code)
++ [enabling larger filesize uploads](https://medium.com/@stefanledin/increase-file-upload-size-in-wordpress-on-nginx-server-19626f4ef8b9)
++ [updating php.ini](https://www.digitalocean.com/community/questions/how-to-update-php-ini-on-a-digitalocean-app)
 
 ## Notes for instructor
 + I have emailed my mailtrap.io credentials to you.
